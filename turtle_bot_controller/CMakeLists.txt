@@ -48,11 +48,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
+#add_message_files(
 #   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+#   Info.msg
+#)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -69,10 +68,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,12 +102,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES turtle_bot_controller
-#  CATKIN_DEPENDS rospy
-#  DEPENDS system_lib
-)
+#catkin_package(
+#  CATKIN_DEPENDS 
+#  message_runtime
+#)
 
 ###########
 ## Build ##
@@ -159,7 +156,7 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS scripts/gotopoint.py scripts/gotopose.py
+catkin_install_python(PROGRAMS scripts/gotopoint.py scripts/gotopose.py scripts/dosquarepath.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
