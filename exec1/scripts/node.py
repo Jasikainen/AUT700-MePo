@@ -52,10 +52,6 @@ class Node():
 		self.rate = rospy.Rate(10)
 
 
-		# Set bag_file to be one given as an environment variable
-		#self.bag_file = bag_file_input
-
-
 	def get_joint_state(self, msg):
 		"""
 		This is a callback function for "/jointstate" subscriber.
@@ -143,7 +139,7 @@ class Node():
 			self.odometry_publisher.publish(odom_msg)
 			# Publish target transform
 			self.tf_broadcaster.sendTransform((x_t, y_t, 0.0), quaternion, 
-				rospy.Time.now(), "Odom", "robot_base")
+				rospy.Time.now(), "robot_base", "Odom")
 
 			# Set current values to be prior
 			self.x_t_prior = x_t
