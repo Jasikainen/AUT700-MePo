@@ -110,7 +110,7 @@ catkin_package(
 
 ### MORO ###############################################################
 
-catkin_install_python(PROGRAMS scripts/node.py
+catkin_install_python(PROGRAMS scripts/node.py scripts/Exercise_2_MC.py scripts/wheel_odometry.py scripts/Exercise_2_EKF.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
